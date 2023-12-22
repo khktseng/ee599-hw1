@@ -194,16 +194,11 @@ module top;
   `VC_TEST_CASE_BEGIN(2, "small positive * negative")
   begin
     init_rand_delays(0,0);
-    init( 00, 32'h00000002, 32'hffffffca, 32'hffffff94 );
-    init( 01, 32'h0000003c, 32'hffffffb4, 32'hffffee30 );
-    init( 02, 32'h00000036, 32'hffffffb2, 32'hffffef8c );
-    init( 03, 32'h00000030, 32'hffffffa3, 32'hffffee90 );
-    init( 04, 32'h00000062, 32'hffffffb0, 32'hffffe160 );
-    init( 05, 32'h0000003b, 32'hffffffd6, 32'hfffff652 );
-    init( 06, 32'h00000032, 32'hffffffd2, 32'hfffff704 );
-    init( 07, 32'h00000058, 32'hffffffab, 32'hffffe2c8 );
-    init( 08, 32'h00000034, 32'hffffffa4, 32'hffffed50 );
-    init( 09, 32'h00000030, 32'hffffffa5, 32'hffffeef0 );
+    init( 0, 32'd02, -32'd03, -32'd6   );
+    init( 1, 32'd04, -32'd05, -32'd20  );
+    init( 2, 32'd03, -32'd04, -32'd12  );
+    init( 3, 32'd10, -32'd13, -32'd130 );
+    init( 4, 32'd08, -32'd07, -32'd56  );
     run_test;
   end
   `VC_TEST_CASE_END
@@ -220,6 +215,22 @@ module top;
     init( 07, 32'h7b9120f8, 32'h3b894d9c, 32'hc012af20 );
     init( 08, 32'h2a706983, 32'h328ac557, 32'h6403aa85 );
     init( 09, 32'h2eb122c2, 32'h58f0eacd, 32'h937e295a );
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(4, "Multiply by Zero")
+  begin
+    init(0, 32'd0, 32'd78, 32'd0);
+    init(1, 32'd385, 32'd0, 32'd0);
+    init(2, 32'd0, 32'd0, 32'd0);
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(5, "Multiply by One")
+  begin
+    init(0, 32'd1, 32'd085, 32'd085);
+    init(1, 32'd352, 3'd1, 32'd352);
+    init(2, 32'd1, 32'd1, 32'd1);
   end
   `VC_TEST_CASE_END
 
