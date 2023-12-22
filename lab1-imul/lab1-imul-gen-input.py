@@ -26,11 +26,14 @@ def print_dataset( in0, in1, out ):
 # Global setup
 #-------------------------------------------------------------------------
 
+'''
 try:
   size = int(sys.argv[2])
 except:
   size = 10
+'''
 
+size = 50
 print ("num_inputs =", size, ";")
 
 in0 = []
@@ -55,10 +58,11 @@ if sys.argv[1] == "small":
 
 # Add code to generate other random datasets here
 
+
 #-------------------------------------------------------------------------
 # small postive * negative dataset
 #-------------------------------------------------------------------------
-if sys.argv[1] == "spn": # small positive * negative
+elif sys.argv[1] == "spn": # small positive * negative
   for i in range(size):
       a = random.randint(0,100)
       b = -random.randint(0,100)
@@ -72,7 +76,7 @@ if sys.argv[1] == "spn": # small positive * negative
 #-------------------------------------------------------------------------
 # small negative * positive dataset
 #-------------------------------------------------------------------------
-if sys.argv[1] == "snp":
+elif sys.argv[1] == "snp":
   for i in range(size):
       a = -random.randint(0,100)
       b = random.randint(0,100)
@@ -86,7 +90,7 @@ if sys.argv[1] == "snp":
 #-------------------------------------------------------------------------
 # large positive  * positive dataset
 #-------------------------------------------------------------------------
-if sys.argv[1] == "lpp":
+elif sys.argv[1] == "lpp":
   for i in range(size):
       a = random.randint(65536,2**31-1)
       b = random.randint(65536,2**31-1)
