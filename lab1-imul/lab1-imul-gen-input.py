@@ -26,7 +26,11 @@ def print_dataset( in0, in1, out ):
 # Global setup
 #-------------------------------------------------------------------------
 
-size = 50
+try:
+  size = int(sys.argv[2])
+except:
+  size = 10
+
 print ("num_inputs =", size, ";")
 
 in0 = []
@@ -50,6 +54,49 @@ if sys.argv[1] == "small":
   print_dataset( in0, in1, out )
 
 # Add code to generate other random datasets here
+
+#-------------------------------------------------------------------------
+# small postive * negative dataset
+#-------------------------------------------------------------------------
+if sys.argv[1] == "spn": # small positive * negative
+  for i in range(size):
+      a = random.randint(0,100)
+      b = -random.randint(0,100)
+
+      in0.append(a & 0xffffffff)
+      in1.append(b & 0xffffffff)
+      out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+#-------------------------------------------------------------------------
+# small negative * positive dataset
+#-------------------------------------------------------------------------
+if sys.argv[1] == "snp":
+  for i in range(size):
+      a = -random.randint(0,100)
+      b = random.randint(0,100)
+
+      in0.append(a & 0xffffffff)
+      in1.append(b & 0xffffffff)
+      out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+#-------------------------------------------------------------------------
+# large positive  * positive dataset
+#-------------------------------------------------------------------------
+if sys.argv[1] == "lpp":
+  for i in range(size):
+      a = random.randint(65536,2**31-1)
+      b = random.randint(65536,2**31-1)
+
+      in0.append(a & 0xffffffff)
+      in1.append(b & 0xffffffff)
+      out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
 
 #-------------------------------------------------------------------------
 # Unrecognized dataset

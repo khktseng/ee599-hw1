@@ -191,6 +191,38 @@ module top;
   // make the above test case larger. Once you have finished adding
   // directed tests, move on to adding random tests.
 
+  `VC_TEST_CASE_BEGIN(2, "small positive * negative")
+  begin
+    init_rand_delays(0,0);
+    init( 00, 32'h00000002, 32'hffffffca, 32'hffffff94 );
+    init( 01, 32'h0000003c, 32'hffffffb4, 32'hffffee30 );
+    init( 02, 32'h00000036, 32'hffffffb2, 32'hffffef8c );
+    init( 03, 32'h00000030, 32'hffffffa3, 32'hffffee90 );
+    init( 04, 32'h00000062, 32'hffffffb0, 32'hffffe160 );
+    init( 05, 32'h0000003b, 32'hffffffd6, 32'hfffff652 );
+    init( 06, 32'h00000032, 32'hffffffd2, 32'hfffff704 );
+    init( 07, 32'h00000058, 32'hffffffab, 32'hffffe2c8 );
+    init( 08, 32'h00000034, 32'hffffffa4, 32'hffffed50 );
+    init( 09, 32'h00000030, 32'hffffffa5, 32'hffffeef0 );
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(3, "large positive * positive")
+  begin
+    init( 00, 32'h0273f8a9, 32'h36984e5b, 32'h7f54e213 );
+    init( 01, 32'h3c1dea78, 32'h733052c1, 32'hc6283478 );
+    init( 02, 32'h4cb65b1c, 32'h77214778, 32'h4b5b7920 );
+    init( 03, 32'h368b36fb, 32'h726fa1a3, 32'he50cdcd1 );
+    init( 04, 32'h4e5d3ff7, 32'h30574ac0, 32'hc75e5f40 );
+    init( 05, 32'h5d22d191, 32'h62de80ff, 32'h6c353f6f );
+    init( 06, 32'h5062ca7f, 32'h7e821bb1, 32'h562766cf );
+    init( 07, 32'h7b9120f8, 32'h3b894d9c, 32'hc012af20 );
+    init( 08, 32'h2a706983, 32'h328ac557, 32'h6403aa85 );
+    init( 09, 32'h2eb122c2, 32'h58f0eacd, 32'h937e295a );
+  end
+  `VC_TEST_CASE_END
+
   `VC_TEST_SUITE_END
 endmodule
 
