@@ -56,7 +56,7 @@ module lab1_imul_IntMulAlt
     output logic a_mux_sel,
     output logic result_mux_sel,
     output logic add_mux_sel,
-    output logic result_en
+    output logic result_en,
 
     input logic b_lsb,
     input logic a_is_zero
