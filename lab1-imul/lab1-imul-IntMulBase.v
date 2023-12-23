@@ -45,9 +45,51 @@ module lab1_imul_IntMulBase
   // together. As a place holder, for now we simply pass input operand
   // A through to the output, which obviously is not correct.
 
-  assign req_rdy         = resp_rdy;
-  assign resp_val        = req_val;
-  assign resp_msg.result = req_msg.a;
+  assign req_rdy         = (ps == 2'b00);
+  assign resp_val        = (ps == 2'b10);
+  assign resp_msg.result = result;
+
+  logic [31:0] a_reg, b_reg;
+  logic [1:0] ps;
+  logic [31:0] result;
+  logic [4:0] counter;
+
+  always @(posedge clk) begin
+    ps <= ps;
+    case (ps)
+      2'b00: begin
+        if (req_val) begin
+          ps <= 2'b01;
+          counter <= 0;
+          result <= 0;
+          a_reg <= req_msg.a;
+          b_reg <= req_msg.b;
+        end
+      end
+      2'b01: begin
+        if (counter == 5'h1F) begin
+          ps <= 2'b10;
+        end
+        counter <= counter + 1;
+        if (b_reg[0])
+          result <= result + a_reg;
+        a_reg <= a_reg << 1;
+        b_reg <= b_reg >>1;
+      end
+      default: begin
+        if (resp_rdy) begin
+          ps <= 2'b00;
+        end
+      end
+    endcase
+
+    if (reset) begin
+      ps <= 0;
+      result <= 0;
+    end
+  end
+
+
 
   //----------------------------------------------------------------------
   // Line Tracing
