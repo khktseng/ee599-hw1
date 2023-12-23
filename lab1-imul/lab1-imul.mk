@@ -11,6 +11,7 @@ lab1_imul_srcs = \
   lab1-imul-IntMulAlt.v \
   lab1-imul-test-harness.v \
   lab1-imul-sim-harness.v \
+  lab1-imul-PriorityEncoder.v \
 
 lab1_imul_test_srcs = \
   lab1-imul-msgs.t.v \
