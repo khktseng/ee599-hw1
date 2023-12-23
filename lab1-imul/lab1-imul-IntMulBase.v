@@ -406,8 +406,8 @@ module lab1_imul_IntMulBase
   );
 
 
-  assign req_rdy         = resp_rdy;
-  assign resp_val        = req_val;
+  //assign req_rdy         = resp_rdy;
+  //assign resp_val        = req_val;
   assign resp_msg.result = resp_result;
 
   //----------------------------------------------------------------------
