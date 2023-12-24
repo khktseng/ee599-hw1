@@ -199,8 +199,41 @@ module top;
     init( 0, 32'd02, -32'd03, -32'd6   );
     init( 1, 32'd04, -32'd05, -32'd20  );
     init( 2, 32'd03, -32'd04, -32'd12  );
-    init( 3, 32'd10, -32'd13, -32'd130 );
+    init( 3, 32'd25, -32'd13, -32'd325 );
     init( 4, 32'd08, -32'd07, -32'd56  );
+    init( 4, 32'd11, -32'd19, -32'd209 );
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  //----------------------------------------------------------------------
+  // Test Case: small negative * positive
+  //----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(3, "small negative * positive")
+  begin
+    init_rand_delays(0,0);
+    init( 0, -32'd02, 32'd03, -32'd6   );
+    init( 1, -32'd04, 32'd05, -32'd20  );
+    init( 2, -32'd03, 32'd04, -32'd12  );
+    init( 3, -32'd25, 32'd13, -32'd325 );
+    init( 4, -32'd08, 32'd07, -32'd56  );
+    init( 4, -32'd11, 32'd19, -32'd209 );
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  //----------------------------------------------------------------------
+  // Test Case: small negative * negative
+  //----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(4, "small negative * negative")
+  begin
+    init_rand_delays(0,0);
+    init( 0, -32'd02, -32'd03, 32'd6   );
+    init( 1, -32'd04, -32'd05, 32'd20  );
+    init( 2, -32'd03, -32'd04, 32'd12  );
+    init( 3, -32'd25, -32'd13, 32'd325 );
+    init( 4, -32'd08, -32'd07, 32'd56  );
+    init( 4, -32'd11, -32'd19, 32'd209 );
     run_test;
   end
   `VC_TEST_CASE_END
@@ -208,7 +241,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: large positive * positive
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(3, "large positive * positive")
+  `VC_TEST_CASE_BEGIN(5, "large positive * positive")
   begin
     init_rand_delays(0,0);
     init( 00, 32'h0273f8a9, 32'h36984e5b, 32'h7f54e213 );
@@ -228,7 +261,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by 0
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(4, "Multiply by Zero")
+  `VC_TEST_CASE_BEGIN(6, "Multiply by Zero")
   begin
     init_rand_delays(0,0);
     init(0, 32'd0, 32'd78, 32'd0);
@@ -241,7 +274,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by 1
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(5, "Multiply by One")
+  `VC_TEST_CASE_BEGIN(7, "Multiply by One")
   begin
     init_rand_delays(0,0);
     init(0, 32'd1, 32'd085, 32'd085);
@@ -254,7 +287,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Small positive * positive w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(6, "small positive * positive w/ random delay" )
+  `VC_TEST_CASE_BEGIN(8, "small positive * positive w/ random delay" )
   begin
     init_rand_delays( 3, 5 );
     init( 0, 32'd02, 32'd03, 32'd6   );
@@ -273,7 +306,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Small positive * negative w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(7, "small positive * negative w/ random delay")
+  `VC_TEST_CASE_BEGIN(9, "small positive * negative w/ random delay")
   begin
     init_rand_delays(3, 5);
     init( 0, 32'd02, -32'd03, -32'd6   );
@@ -281,6 +314,7 @@ module top;
     init( 2, 32'd03, -32'd04, -32'd12  );
     init( 3, 32'd10, -32'd13, -32'd130 );
     init( 4, 32'd08, -32'd07, -32'd56  );
+    init( 4, 32'd11, -32'd19, -32'd209 );
     run_test;
   end
   `VC_TEST_CASE_END
@@ -288,7 +322,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Large positive * positive w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(8, "large positive * positive w/ random delay")
+  `VC_TEST_CASE_BEGIN(10, "large positive * positive w/ random delay")
   begin
     init_rand_delays(3, 5);
     init( 00, 32'h0273f8a9, 32'h36984e5b, 32'h7f54e213 );
@@ -308,7 +342,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by zero w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(9, "Multiply by Zero w/ random delay")
+  `VC_TEST_CASE_BEGIN(11, "Multiply by Zero w/ random delay")
   begin
     init_rand_delays(3, 5);
     init(0, 32'd0, 32'd78, 32'd0);
@@ -321,7 +355,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by one w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(10, "Multiply by One w/ random delay")
+  `VC_TEST_CASE_BEGIN(12, "Multiply by One w/ random delay")
   begin
     init_rand_delays(3, 5);
     init(0, 32'd1, 32'd085, 32'd085);
