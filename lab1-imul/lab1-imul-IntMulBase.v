@@ -40,13 +40,16 @@ module lab1_imul_ctrl
 );
 
   //should be replaced to VC counter
-  reg [4:0] counter;
+  reg [5:0] counter;
   always @ (posedge clk or posedge reset) begin
     if(reset)
-	counter <= 5'd0;
+	counter <= 6'd0;
     else begin
 	if(state_reg == STATE_CALC) begin
 	  counter <= counter + 1'd1;
+	end
+	if(state_reg == STATE_DONE) begin
+	  counter <= 6'd0;
 	end
     end
   end
@@ -54,10 +57,10 @@ module lab1_imul_ctrl
   logic is_cnt_lt_32;
   logic is_b_lsb_zero;
 
-  vc_LtComparator#(5) a_lt_b
+  vc_LtComparator#(6) a_lt_b
   (
     .in0 (counter),
-    .in1 (5'b11111),
+    .in1 (6'b100000),
     .out (is_cnt_lt_32)
   );
 
@@ -101,7 +104,8 @@ module lab1_imul_ctrl
   
   assign req_go = req_val && req_rdy;
   assign resp_go = resp_val && resp_rdy;
-  assign is_calc_done = !(is_cnt_lt_32 && is_b_lsb_zero) && !(is_cnt_lt_32 && !is_b_lsb_zero);
+ // assign is_calc_done = !(is_cnt_lt_32 && is_b_lsb_zero) && !(is_cnt_lt_32 && !is_b_lsb_zero);
+  assign is_calc_done = (counter == 32);
 
   always @ (*) begin
    
