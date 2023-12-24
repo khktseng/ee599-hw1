@@ -419,6 +419,9 @@ module lab1_imul_IntMulBase
   `ifndef SYNTHESIS
 
   reg [`VC_TRACE_NBITS_TO_NCHARS(32)*8-1:0] str;
+  reg [`VC_TRACE_NBITS_TO_NCHARS(96)*8 + 64 -1:0] ab_str;
+  wire is_calc;
+  assign is_calc = CTRL_UNIT.state_reg == 2'd1;
 
   `VC_TRACE_BEGIN
   begin
@@ -428,6 +431,8 @@ module lab1_imul_IntMulBase
     vc_trace.append_str( trace_str, "(" );
 
     // Add extra line tracing for internal state here
+    $sformat(ab_str, "a:%x b:%x r:%x", DATAPATH.a_reg_out, DATAPATH.b_reg_out, DATAPATH.result_reg_out);
+    vc_trace.append_val_str(trace_str, is_calc, ab_str);
 
     vc_trace.append_str( trace_str, ")" );
 
