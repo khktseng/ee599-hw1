@@ -365,6 +365,218 @@ module top;
   end
   `VC_TEST_CASE_END
 
+  `VC_TEST_CASE_BEGIN(13, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(14, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(15, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(16, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(17, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(18, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(19, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  //----------------------------------------------------------------------
+  // RANDOM GENERATED TESTS, NO DELAY
+  //----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(20, "Random Gen Small pos * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_small.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(21, "Random Gen Small pos * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_spn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(22, "Random Gen Small neg * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_snp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(23, "Random Gen Small neg * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_snn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(24, "Random Gen Large pos * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lpp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+    `VC_TEST_CASE_BEGIN(25, "Random Gen Large pos * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lpn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(26, "Random Gen Large neg * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lnp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(27, "Random Gen Large neg * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lnn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(28, "Random Gen Low Mask a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_low-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(29, "Random Gen Low Mask b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_low-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(30, "Random Gen Low Mask")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_low-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(31, "Random Gen Middle Mask a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_mid-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(32, "Random Gen Middle Mask b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_mid-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(33, "Random Gen Middle Mask")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_mid-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(34, "Random Gen Sparse a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_sparse-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(35, "Random Gen Sparse b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_sparse-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(36, "Random Gen Sparse")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_sparse.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(37, "Random Gen Dense a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_dense-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(38, "Random Gen Dense b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_dense-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(39, "Random Gen Dense")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_dense.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
   `VC_TEST_SUITE_END
 endmodule
 

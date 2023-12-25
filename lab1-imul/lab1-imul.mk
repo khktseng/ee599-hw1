@@ -27,6 +27,25 @@ lab1_imul_sim_srcs = \
 
 lab1_imul_pyv_srcs = \
   lab1-imul-gen-input_small.py.v \
+  lab1-imul-gen-input_spn.py.v \
+  lab1-imul-gen-input_snp.py.v \
+  lab1-imul-gen-input_snn.py.v \
+  lab1-imul-gen-input_lpp.py.v \
+  lab1-imul-gen-input_lpn.py.v \
+  lab1-imul-gen-input_lnp.py.v \
+  lab1-imul-gen-input_lnn.py.v \
+  lab1-imul-gen-input_low-mask-a.py.v \
+  lab1-imul-gen-input_low-mask-b.py.v \
+  lab1-imul-gen-input_low-mask.py.v \
+  lab1-imul-gen-input_mid-mask-a.py.v \
+  lab1-imul-gen-input_mid-mask-b.py.v \
+  lab1-imul-gen-input_mid-mask.py.v \
+  lab1-imul-gen-input_sparse-a.py.v \
+  lab1-imul-gen-input_sparse-b.py.v \
+  lab1-imul-gen-input_sparse.py.v \
+  lab1-imul-gen-input_dense-a.py.v \
+  lab1-imul-gen-input_dense-b.py.v \
+  lab1-imul-gen-input_dense.py.v \
 
 #-------------------------------------------------------------------------
 # Evaluation
@@ -39,7 +58,8 @@ lab1_imul_eval_impls  = base alt
 # You will need to add the names of your additional datasets to the
 # lab1_imul_eval_inputs make variable.
 
-lab1_imul_eval_inputs = small
+lab1_imul_eval_inputs = \
+  small   \
 
 # Template used to create rules for each impl/input pair
 
