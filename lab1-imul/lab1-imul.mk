@@ -63,6 +63,8 @@ lab1_imul_eval_impls  = base alt
 
 lab1_imul_eval_inputs = \
   small   \
+  spn     \
+  lnn     \
   sparse  \
   dense   \
 

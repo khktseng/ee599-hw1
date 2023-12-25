@@ -213,6 +213,22 @@ module top;
       `include "lab1-imul-gen-input_small.py.v"
     end
 
+    else if ( input_dataset == "spn" ) begin
+      `include "lab1-imul-gen-input_spn.py.v"
+    end
+
+    else if ( input_dataset == "lnn" ) begin
+      `include "lab1-imul-gen-input_lnn.py.v"
+    end
+
+    else if ( input_dataset == "sparse" ) begin
+      `include "lab1-imul-gen-input_sparse.py.v"
+    end
+
+    else if ( input_dataset == "dense" ) begin
+      `include "lab1-imul-gen-input_dense.py.v"
+    end
+
     // Add additional datasets for evaluation here
 
     else begin
