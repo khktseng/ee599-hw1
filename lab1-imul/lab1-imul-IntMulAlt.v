@@ -6,6 +6,8 @@
 `define LAB1_IMUL_INT_MUL_ALT_V
 
 `include "lab1-imul-msgs.v"
+`include "lab1-imul-IntMulAlt-Data.v"
+`include "lab1-imul-IntMulAlt-Ctrl.v"
 `include "vc-trace.v"
 
 // Define datapath and control unit here
@@ -41,60 +43,59 @@ module lab1_imul_IntMulAlt
     .msg   (req_msg)
   );
 
-// int mult alt Control logic
-  module intMulAlt_ctrl
+  //----------------------------------------------------------------------
+  // Datapath and Controlpath Instantiation
+  //----------------------------------------------------------------------
+  // Internal interconnects
+  logic b_mux_sel;
+  logic a_mux_sel;
+  logic result_mux_sel;
+  logic add_mux_sel;
+  logic result_en;
+  logic b_lsb;
+  logic a_is_zero;
+  logic [4:0] shift_amt;
+
+  logic [31:0] result;
+
+  assign resp_msg.result = result;
+
+  intMulAlt_data datapath
   (
-    input logic clk,
-    input logic reset,
+    .clk            (clk),
+    .reset          (reset),
+    .req_a          (req_msg.a),
+    .req_b          (req_msg.b),
+    .resp_result    (result),
 
-    input logic req_val,
-    output logic req_rdy,
-    output logic resp_val,
-    input logic resp_rdy,
-
-    output logic b_mux_sel,
-    output logic a_mux_sel,
-    output logic result_mux_sel,
-    output logic add_mux_sel,
-    output logic result_en,
-
-    input logic b_lsb,
-    input logic a_is_zero
+    .b_mux_sel      (b_mux_sel),
+    .a_mux_sel      (a_mux_sel),
+    .result_mux_sel (result_mux_sel),
+    .add_mux_sel    (add_mux_sel),
+    .result_en      (result_en),
+    .b_lsb          (b_lsb),
+    .a_is_zero      (a_is_zero),
+    .shift_amt      (shift_amt)
   );
 
-    typedef enum logic [1:0] {
-      IDLE,
-      CALC,
-      DONE,
-      INVL
-    } state_t;
+  intMulAlt_ctrl Controlpath
+  (
+    .clk            (clk),
+    .reset          (reset),
+    .req_val        (req_val),
+    .req_rdy        (req_rdy),
+    .resp_val       (resp_val),
+    .resp_rdy       (resp_rdy),
 
-    state_t ps, ns;
-
-    always @(*) begin
-      
-    end
-
-    always @(posedge clk) begin
-      ps <= ps;
-
-
-      if (reset) begin
-        ps <= IDLE;
-      end
-    end
-
-    
-
-  endmodule
-
-  // Instantiate datapath and control models here and then connect them
-  // together. As a place holder, for now we simply pass input operand
-  // A through to the output, which obviously is not / correct.
-
-  assign req_rdy         = resp_rdy;
-  assign resp_val        = req_val;
-  assign resp_msg.result = req_msg.a;
+    .b_mux_sel      (b_mux_sel),
+    .a_mux_sel      (a_mux_sel),
+    .result_mux_sel (result_mux_sel),
+    .add_mux_sel    (add_mux_sel),
+    .result_en      (result_en),
+    .b_lsb          (b_lsb),
+    .a_is_zero      (a_is_zero),
+    .shift_amt      (shift_amt)
+  );
 
   //----------------------------------------------------------------------
   // Line Tracing

@@ -44,3 +44,5 @@ module lab1_imul_PriorityEncoder(
         else             shift_amt =     0;
     end
 endmodule
+
+`endif
