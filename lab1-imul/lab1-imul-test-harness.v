@@ -577,6 +577,169 @@ module top;
   end
   `VC_TEST_CASE_END
 
+//----------------------------------------------------------------------
+// RANDOM GENERATED TESTS, DELAY
+//----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(40, "Random Gen Small pos * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_small.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(41, "Random Gen Small pos * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_spn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(42, "Random Gen Small neg * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_snp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(43, "Random Gen Small neg * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_snn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(44, "Random Gen Large pos * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lpp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(45, "Random Gen Large pos * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lpn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(46, "Random Gen Large neg * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lnp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(47, "Random Gen Large neg * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lnn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(48, "Random Gen Low Mask a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_low-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(49, "Random Gen Low Mask b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_low-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(50, "Random Gen Low Mask w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_low-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(51, "Random Gen Middle Mask a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_mid-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(52, "Random Gen Middle Mask b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_mid-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(53, "Random Gen Middle Mask w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_mid-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(54, "Random Gen Sparse a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_sparse-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(55, "Random Gen Sparse b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_sparse-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(56, "Random Gen Sparse w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_sparse.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(57, "Random Gen Dense a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_dense-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(58, "Random Gen Dense b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_dense-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(59, "Random Gen Dense w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_dense.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
   `VC_TEST_SUITE_END
 endmodule
 
