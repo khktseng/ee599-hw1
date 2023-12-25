@@ -33,7 +33,7 @@ except:
   size = 10
 '''
 
-size = 50
+size = 100
 print ("num_inputs =", size, ";")
 
 in0 = []
@@ -64,12 +64,12 @@ if sys.argv[1] == "small":
 #-------------------------------------------------------------------------
 elif sys.argv[1] == "spn": # small positive * negative
   for i in range(size):
-      a = random.randint(0,100)
-      b = -random.randint(0,100)
+    a = random.randint(0,100)
+    b = -random.randint(0,100)
 
-      in0.append(a & 0xffffffff)
-      in1.append(b & 0xffffffff)
-      out.append((a * b) & 0xffffffff)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
 
   print_dataset(in0, in1, out)
 
@@ -78,12 +78,23 @@ elif sys.argv[1] == "spn": # small positive * negative
 #-------------------------------------------------------------------------
 elif sys.argv[1] == "snp":
   for i in range(size):
-      a = -random.randint(0,100)
-      b = random.randint(0,100)
+    a = -random.randint(0,100)
+    b = random.randint(0,100)
 
-      in0.append(a & 0xffffffff)
-      in1.append(b & 0xffffffff)
-      out.append((a * b) & 0xffffffff)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "snn":
+  for i in range(size):
+    a = -random.randint(0,100)
+    b = -random.randint(0,100)
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
 
   print_dataset(in0, in1, out)
 
@@ -92,14 +103,221 @@ elif sys.argv[1] == "snp":
 #-------------------------------------------------------------------------
 elif sys.argv[1] == "lpp":
   for i in range(size):
-      a = random.randint(65536,2**31-1)
-      b = random.randint(65536,2**31-1)
+    a = random.randint(65536,2**31-1)
+    b = random.randint(65536,2**31-1)
 
-      in0.append(a & 0xffffffff)
-      in1.append(b & 0xffffffff)
-      out.append((a * b) & 0xffffffff)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
 
   print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "lpn":
+  for i in range(size):
+    a = random.randint(65536,2**31-1)
+    b = -random.randint(65536,2**31-1)
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "lnp":
+  for i in range(size):
+    a = -random.randint(65536,2**31-1)
+    b = random.randint(65536,2**31-1)
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "lnn":
+  for i in range(size):
+    a = -random.randint(65536,2**31-1)
+    b = -random.randint(65536,2**31-1)
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "low-mask-a":
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+
+    a = a & 0xfffff000
+    b = b & 0xffffffff
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "low-mask-b":
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+
+    a = a & 0xffffffff
+    b = b & 0xfffff000
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "low-mask":
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+
+    a = a & 0xfffff000
+    b = b & 0xfffff000
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "mid-mask-a":
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+
+    a = a & 0xff000fff
+    b = b & 0xffffffff
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "mid-mask-b":
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+
+    a = a & 0xffffffff
+    b = b & 0xff000fff
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "mid-mask":
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+
+    a = a & 0xff000fff
+    b = b & 0xff000fff
+
+    in0.append(a)
+    in1.append(b)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "sparse-a":
+  bin_weights = (10, 1)
+  for i in range(size):
+    a = 0
+    b = random.randint(-(2**31),2**31-1)
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "sparse-b":
+  bin_weights = (10, 1)
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = 0
+    for j in range(32):
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "sparse":
+  bin_weights = (10, 1)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "dense-a":
+  bin_weights = (1, 10)
+  for i in range(size):
+    a = 0
+    b = random.randint(-(2**31),2**31-1)
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "dense-b":
+  bin_weights = (1, 10)
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = 0
+    for j in range(32):
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "dense":
+  bin_weights = (1, 10)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+
+
+
 
 
 #-------------------------------------------------------------------------

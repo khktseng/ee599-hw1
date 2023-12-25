@@ -199,8 +199,41 @@ module top;
     init( 0, 32'd02, -32'd03, -32'd6   );
     init( 1, 32'd04, -32'd05, -32'd20  );
     init( 2, 32'd03, -32'd04, -32'd12  );
-    init( 3, 32'd10, -32'd13, -32'd130 );
+    init( 3, 32'd25, -32'd13, -32'd325 );
     init( 4, 32'd08, -32'd07, -32'd56  );
+    init( 4, 32'd11, -32'd19, -32'd209 );
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  //----------------------------------------------------------------------
+  // Test Case: small negative * positive
+  //----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(3, "small negative * positive")
+  begin
+    init_rand_delays(0,0);
+    init( 0, -32'd02, 32'd03, -32'd6   );
+    init( 1, -32'd04, 32'd05, -32'd20  );
+    init( 2, -32'd03, 32'd04, -32'd12  );
+    init( 3, -32'd25, 32'd13, -32'd325 );
+    init( 4, -32'd08, 32'd07, -32'd56  );
+    init( 4, -32'd11, 32'd19, -32'd209 );
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  //----------------------------------------------------------------------
+  // Test Case: small negative * negative
+  //----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(4, "small negative * negative")
+  begin
+    init_rand_delays(0,0);
+    init( 0, -32'd02, -32'd03, 32'd6   );
+    init( 1, -32'd04, -32'd05, 32'd20  );
+    init( 2, -32'd03, -32'd04, 32'd12  );
+    init( 3, -32'd25, -32'd13, 32'd325 );
+    init( 4, -32'd08, -32'd07, 32'd56  );
+    init( 4, -32'd11, -32'd19, 32'd209 );
     run_test;
   end
   `VC_TEST_CASE_END
@@ -208,7 +241,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: large positive * positive
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(3, "large positive * positive")
+  `VC_TEST_CASE_BEGIN(5, "large positive * positive")
   begin
     init_rand_delays(0,0);
     init( 00, 32'h0273f8a9, 32'h36984e5b, 32'h7f54e213 );
@@ -228,7 +261,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by 0
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(4, "Multiply by Zero")
+  `VC_TEST_CASE_BEGIN(6, "Multiply by Zero")
   begin
     init_rand_delays(0,0);
     init(0, 32'd0, 32'd78, 32'd0);
@@ -241,7 +274,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by 1
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(5, "Multiply by One")
+  `VC_TEST_CASE_BEGIN(7, "Multiply by One")
   begin
     init_rand_delays(0,0);
     init(0, 32'd1, 32'd085, 32'd085);
@@ -254,7 +287,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Small positive * positive w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(6, "small positive * positive w/ random delay" )
+  `VC_TEST_CASE_BEGIN(8, "small positive * positive w/ random delay" )
   begin
     init_rand_delays( 3, 5 );
     init( 0, 32'd02, 32'd03, 32'd6   );
@@ -273,7 +306,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Small positive * negative w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(7, "small positive * negative w/ random delay")
+  `VC_TEST_CASE_BEGIN(9, "small positive * negative w/ random delay")
   begin
     init_rand_delays(3, 5);
     init( 0, 32'd02, -32'd03, -32'd6   );
@@ -281,6 +314,7 @@ module top;
     init( 2, 32'd03, -32'd04, -32'd12  );
     init( 3, 32'd10, -32'd13, -32'd130 );
     init( 4, 32'd08, -32'd07, -32'd56  );
+    init( 4, 32'd11, -32'd19, -32'd209 );
     run_test;
   end
   `VC_TEST_CASE_END
@@ -288,7 +322,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Large positive * positive w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(8, "large positive * positive w/ random delay")
+  `VC_TEST_CASE_BEGIN(10, "large positive * positive w/ random delay")
   begin
     init_rand_delays(3, 5);
     init( 00, 32'h0273f8a9, 32'h36984e5b, 32'h7f54e213 );
@@ -308,7 +342,7 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by zero w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(9, "Multiply by Zero w/ random delay")
+  `VC_TEST_CASE_BEGIN(11, "Multiply by Zero w/ random delay")
   begin
     init_rand_delays(3, 5);
     init(0, 32'd0, 32'd78, 32'd0);
@@ -321,12 +355,387 @@ module top;
   //----------------------------------------------------------------------
   // Test Case: Multiply by one w/ random delay
   //----------------------------------------------------------------------
-  `VC_TEST_CASE_BEGIN(10, "Multiply by One w/ random delay")
+  `VC_TEST_CASE_BEGIN(12, "Multiply by One w/ random delay")
   begin
     init_rand_delays(3, 5);
     init(0, 32'd1, 32'd085, 32'd085);
     init(1, 32'd352, 3'd1, 32'd352);
     init(2, 32'd1, 32'd1, 32'd1);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(13, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(14, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(15, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(16, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(17, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(18, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(19, "Placeholder")
+  begin
+    init_rand_delays(3, 5);
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  //----------------------------------------------------------------------
+  // RANDOM GENERATED TESTS, NO DELAY
+  //----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(20, "Random Gen Small pos * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_small.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(21, "Random Gen Small pos * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_spn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(22, "Random Gen Small neg * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_snp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(23, "Random Gen Small neg * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_snn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(24, "Random Gen Large pos * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lpp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+    `VC_TEST_CASE_BEGIN(25, "Random Gen Large pos * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lpn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(26, "Random Gen Large neg * pos")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lnp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(27, "Random Gen Large neg * neg")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_lnn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(28, "Random Gen Low Mask a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_low-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(29, "Random Gen Low Mask b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_low-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(30, "Random Gen Low Mask")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_low-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(31, "Random Gen Middle Mask a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_mid-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(32, "Random Gen Middle Mask b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_mid-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(33, "Random Gen Middle Mask")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_mid-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(34, "Random Gen Sparse a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_sparse-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(35, "Random Gen Sparse b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_sparse-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(36, "Random Gen Sparse")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_sparse.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(37, "Random Gen Dense a")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_dense-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(38, "Random Gen Dense b")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_dense-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(39, "Random Gen Dense")
+  begin
+    init_rand_delays(0, 0);
+    `include "lab1-imul-gen-input_dense.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+//----------------------------------------------------------------------
+// RANDOM GENERATED TESTS, DELAY
+//----------------------------------------------------------------------
+  `VC_TEST_CASE_BEGIN(40, "Random Gen Small pos * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_small.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(41, "Random Gen Small pos * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_spn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(42, "Random Gen Small neg * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_snp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(43, "Random Gen Small neg * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_snn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(44, "Random Gen Large pos * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lpp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(45, "Random Gen Large pos * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lpn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(46, "Random Gen Large neg * pos w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lnp.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(47, "Random Gen Large neg * neg w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_lnn.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(48, "Random Gen Low Mask a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_low-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(49, "Random Gen Low Mask b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_low-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(50, "Random Gen Low Mask w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_low-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(51, "Random Gen Middle Mask a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_mid-mask-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(52, "Random Gen Middle Mask b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_mid-mask-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(53, "Random Gen Middle Mask w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_mid-mask.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(54, "Random Gen Sparse a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_sparse-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(55, "Random Gen Sparse b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_sparse-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(56, "Random Gen Sparse w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_sparse.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(57, "Random Gen Dense a w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_dense-a.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(58, "Random Gen Dense b w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_dense-b.py.v"
+    run_test;
+  end
+  `VC_TEST_CASE_END
+
+  `VC_TEST_CASE_BEGIN(59, "Random Gen Dense w/ Random Delay")
+  begin
+    init_rand_delays(5, 5);
+    `include "lab1-imul-gen-input_dense.py.v"
     run_test;
   end
   `VC_TEST_CASE_END
