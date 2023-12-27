@@ -55,19 +55,12 @@ module lab1_imul_ctrl
   end
  
   logic is_cnt_lt_32;
-  logic is_b_lsb_zero;
 
-  vc_LtComparator#(6) a_lt_b
+  vc_LtComparator#(6) counter_cmp
   (
     .in0 (counter),
     .in1 (6'b100000),
     .out (is_cnt_lt_32)
-  );
-
-  vc_ZeroComparator#(1) b_zero
-  (
-    .in  (b_lsb),
-    .out (is_b_lsb_zero)
   );
 
   //----------------------------------------------------------------------
@@ -104,7 +97,6 @@ module lab1_imul_ctrl
   
   assign req_go = req_val && req_rdy;
   assign resp_go = resp_val && resp_rdy;
- // assign is_calc_done = !(is_cnt_lt_32 && is_b_lsb_zero) && !(is_cnt_lt_32 && !is_b_lsb_zero);
   assign is_calc_done = (counter == 32);
 
   always @ (*) begin
@@ -126,7 +118,7 @@ module lab1_imul_ctrl
   logic do_add;
   logic do_shift;
 
-  assign do_add = is_cnt_lt_32 && !is_b_lsb_zero;
+  assign do_add = is_cnt_lt_32 && b_lsb;
   assign do_shift = is_cnt_lt_32;
 
   task cs
