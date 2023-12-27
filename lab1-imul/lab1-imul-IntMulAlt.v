@@ -54,7 +54,7 @@ module lab1_imul_IntMulAlt
   logic result_en;
   logic b_lsb;
   logic a_is_zero;
-  logic [4:0] shift_amt;
+  logic shift_is_zero;
 
   logic [31:0] result;
 
@@ -75,7 +75,7 @@ module lab1_imul_IntMulAlt
     .result_en      (result_en),
     .b_lsb          (b_lsb),
     .a_is_zero      (a_is_zero),
-    .shift_amt      (shift_amt)
+    .shift_is_zero  (shift_is_zero)
   );
 
   intMulAlt_ctrl Controlpath
@@ -94,7 +94,7 @@ module lab1_imul_IntMulAlt
     .result_en      (result_en),
     .b_lsb          (b_lsb),
     .a_is_zero      (a_is_zero),
-    .shift_amt      (shift_amt)
+    .shift_is_zero  (shift_is_zero)
   );
 
   //----------------------------------------------------------------------

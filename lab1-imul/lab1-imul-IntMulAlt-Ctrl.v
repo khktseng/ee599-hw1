@@ -24,7 +24,7 @@
 
     input logic b_lsb,
     input logic a_is_zero,
-    input logic [4:0] shift_amt
+    input logic shift_is_zero
   );
 
     typedef enum logic [1:0] {
@@ -35,53 +35,9 @@
     } state_t;
 
     state_t ps, ns;
-
-/*
-    localparam c_cbits = 4;
-
-    logic counter_reset;
-    logic counter_inc;
-    logic [c_cbits-1:0] count;
-    logic count_is_zero;
-    logic count_is_max;
-
-    vc_counter #(c_cbits, 0, 31) counter
-    (
-      .clk          (clk),
-      .reset        (counter_reset),
-      .increment    (counter_inc),
-      .decrement    (0),
-      .count_is_zero(count_is_zero),
-      .count_is_max (count_is_max)
-    );
-
-    // Counter Control
-    task set_counter
-    (
-      input ct_reset,
-      input ct_inc
-    );
-      counter_reset = ct_reset;
-      counter_inc = ct_inc;
-    endtask
-
-    always @(*) begin
-      case(ps)
-        CALC:     set_counter(0, 1);
-        default:  set_counter(1, 0);
-      endcase
-    end */
-
-    localparam c_shft_amt_bits = 5;
-
-    logic shift_is_zero;
     logic calc_done;
 
-    vc_ZeroComparator #(c_shft_amt_bits) shift_cmp_zero
-    (
-      .in   (shift_amt),
-      .out  (shift_is_zero)
-    );
+    
 
     assign calc_done = a_is_zero || shift_is_zero;
 

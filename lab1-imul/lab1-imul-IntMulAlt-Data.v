@@ -26,7 +26,7 @@ module intMulAlt_data
 
     output logic b_lsb,
     output logic a_is_zero,
-    output logic [4:0] shift_amt
+    output logic shift_is_zero
 );
 
     localparam c_nbits = 32;
@@ -39,6 +39,7 @@ module intMulAlt_data
     logic [c_nbits-1:0] b_mux_out;
     logic [c_nbits-1:0] b_reg_out;
     logic [c_nbits-1:0] b_shift_out;
+    logic [c_shft_amt_bits-1:0] shift_amt;
 
     logic [c_nbits-1:0] result_mux_out;
     logic [c_nbits-1:0] result_reg_out;
@@ -100,6 +101,12 @@ module intMulAlt_data
         .in     (b_reg_out),
         .shamt  (shift_amt),
         .out    (b_shift_out)
+    );
+
+    vc_ZeroComparator #(c_shft_amt_bits) shift_cmp_zero
+    (
+      .in   (shift_amt),
+      .out  (shift_is_zero)
     );
 
     // Priority encoder
