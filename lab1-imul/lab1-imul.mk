@@ -64,8 +64,23 @@ lab1_imul_eval_impls  = base alt
 lab1_imul_eval_inputs = \
   small   \
   spn     \
+  snp     \
+  snn     \
+  lpp     \
+  lpn     \
+  lnp     \
   lnn     \
+  low-mask-a \
+  low-mask-b \
+  low-mask   \
+  mid-mask-a \
+  mid-mask-b \
+  mid-mask   \
+  sparse-a  \
+  sparse-b  \
   sparse  \
+  dense-a \
+  dense-b \
   dense   \
 
 # Template used to create rules for each impl/input pair
