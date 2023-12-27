@@ -7,6 +7,7 @@
 `include "vc-trace.v"
 
 `include "lab1-imul-PriorityEncoder.v"
+`include "lab1-imul-swap_ab.v"
   
 module intMulAlt_data
 (
@@ -46,14 +47,25 @@ module intMulAlt_data
     logic [c_nbits-1:0] add_out;
     logic [c_nbits-1:0] add_mux_out;
 
+    logic [c_nbits-1:0] req_a_s;
+    logic [c_nbits-1:0] req_b_s;
+
     assign resp_result = result_reg_out;
     assign b_lsb = b_reg_out[0];
+
+    lab1_imul_swap_ab swapper
+    (
+        .a  (req_a),
+        .b  (req_b),
+        .a_out  (req_a_s),
+        .b_out  (req_b_s)
+    );
 
     // A datapath
     vc_Mux2 #(c_nbits) a_mux
     (
         .sel    (a_mux_sel),
-        .in0    (req_a),
+        .in0    (req_a_s),
         .in1    (a_shift_out),
         .out    (a_mux_out)
     );
@@ -83,7 +95,7 @@ module intMulAlt_data
     vc_Mux2 #(c_nbits) b_mux
     (
         .sel    (b_mux_sel),
-        .in0    (req_b),
+        .in0    (req_b_s),
         .in1    (b_shift_out),
         .out    (b_mux_out)
     );

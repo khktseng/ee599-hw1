@@ -126,7 +126,7 @@ module top;
     // Maximum cycles
 
     if ( !$value$plusargs( "max-cycles=%d", max_cycles ) ) begin
-      max_cycles = 5000;
+      max_cycles = 50000;
     end
 
     // VCD dumping
@@ -288,6 +288,42 @@ module top;
     else if ( input_dataset == "dense" ) begin
       `include "lab1-imul-gen-input_dense.py.v"
     end
+
+// Density plot
+    else if ( input_dataset == "density-0" ) begin
+      `include "lab1-imul-gen-input_density-0.py.v"
+    end
+    else if ( input_dataset == "density-1" ) begin
+      `include "lab1-imul-gen-input_density-1.py.v"
+    end
+    else if ( input_dataset == "density-2" ) begin
+      `include "lab1-imul-gen-input_density-2.py.v"
+    end
+    else if ( input_dataset == "density-3" ) begin
+      `include "lab1-imul-gen-input_density-3.py.v"
+    end
+    else if ( input_dataset == "density-4" ) begin
+      `include "lab1-imul-gen-input_density-4.py.v"
+    end
+    else if ( input_dataset == "density-5" ) begin
+      `include "lab1-imul-gen-input_density-5.py.v"
+    end
+    else if ( input_dataset == "density-6" ) begin
+      `include "lab1-imul-gen-input_density-6.py.v"
+    end
+    else if ( input_dataset == "density-7" ) begin
+      `include "lab1-imul-gen-input_density-7.py.v"
+    end
+    else if ( input_dataset == "density-8" ) begin
+      `include "lab1-imul-gen-input_density-8.py.v"
+    end
+    else if ( input_dataset == "density-9" ) begin
+      `include "lab1-imul-gen-input_density-9.py.v"
+    end
+    else if ( input_dataset == "density-10" ) begin
+      `include "lab1-imul-gen-input_density-10.py.v"
+    end
+
 
     // Add additional datasets for evaluation here
 

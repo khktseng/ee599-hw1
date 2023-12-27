@@ -14,6 +14,7 @@ lab1_imul_srcs = \
   lab1-imul-test-harness.v \
   lab1-imul-sim-harness.v \
   lab1-imul-PriorityEncoder.v \
+  lab1-imul-swap_av.v \
 
 lab1_imul_test_srcs = \
   lab1-imul-msgs.t.v \
@@ -49,6 +50,17 @@ lab1_imul_pyv_srcs = \
   lab1-imul-gen-input_dense-a.py.v \
   lab1-imul-gen-input_dense-b.py.v \
   lab1-imul-gen-input_dense.py.v \
+  lab1-imul-gen-input_density-0.py.v \
+  lab1-imul-gen-input_density-1.py.v \
+  lab1-imul-gen-input_density-2.py.v \
+  lab1-imul-gen-input_density-3.py.v \
+  lab1-imul-gen-input_density-4.py.v \
+  lab1-imul-gen-input_density-5.py.v \
+  lab1-imul-gen-input_density-6.py.v \
+  lab1-imul-gen-input_density-7.py.v \
+  lab1-imul-gen-input_density-8.py.v \
+  lab1-imul-gen-input_density-9.py.v \
+  lab1-imul-gen-input_density-10.py.v \
 
 #-------------------------------------------------------------------------
 # Evaluation
@@ -82,6 +94,17 @@ lab1_imul_eval_inputs = \
   dense-a \
   dense-b \
   dense   \
+  density-0\
+  density-1\
+  density-2\
+  density-3\
+  density-4\
+  density-5\
+  density-6\
+  density-7\
+  density-8\
+  density-9\
+  density-10\
 
 # Template used to create rules for each impl/input pair
 

@@ -22,6 +22,15 @@ def print_dataset( in0, in1, out ):
     print ("init( {:0>2}, 32'h{:0>8x}, 32'h{:0>8x}, 32'h{:0>8x} );" \
       .format( i, in0[i], in1[i], out[i] ))
 
+
+def make_density(bin_weights=(1,10)):
+  n = 0
+  for j in range(32):
+    n = (n << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+  n = n & 0xffffffff
+  return n
+
 #-------------------------------------------------------------------------
 # Global setup
 #-------------------------------------------------------------------------
@@ -33,7 +42,7 @@ except:
   size = 10
 '''
 
-size = 100
+size = 1000
 print ("num_inputs =", size, ";")
 
 in0 = []
@@ -273,7 +282,7 @@ elif sys.argv[1] == "sparse":
   print_dataset(in0, in1, out)
 
 elif sys.argv[1] == "dense-a":
-  bin_weights = (1, 10)
+  bin_weights = (1, 9)
   for i in range(size):
     a = 0
     b = random.randint(-(2**31),2**31-1)
@@ -287,7 +296,7 @@ elif sys.argv[1] == "dense-a":
   print_dataset(in0, in1, out)
 
 elif sys.argv[1] == "dense-b":
-  bin_weights = (1, 10)
+  bin_weights = (1, 9)
   for i in range(size):
     a = random.randint(-(2**31),2**31-1)
     b = 0
@@ -301,7 +310,7 @@ elif sys.argv[1] == "dense-b":
   print_dataset(in0, in1, out)
 
 elif sys.argv[1] == "dense":
-  bin_weights = (1, 10)
+  bin_weights = (1, 9)
   for i in range(size):
     a = 0
     b = 0
@@ -315,6 +324,186 @@ elif sys.argv[1] == "dense":
 
   print_dataset(in0, in1, out)
 
+
+#-------------------------------------------------------------------------
+# density tests
+#-------------------------------------------------------------------------
+elif sys.argv[1] == "density-0":
+  bin_weights = (10, 0)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-1":
+  bin_weights = (9, 1)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-2":
+  bin_weights = (8, 2)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-3":
+  bin_weights = (7,3)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-4":
+  bin_weights = (6,4)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-5":
+  bin_weights = (5, 5)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-6":
+  bin_weights = (4, 6)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-7":
+  bin_weights = (3, 7)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-8":
+  bin_weights = (2, 8)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-9":
+  bin_weights = (1, 9)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
+
+elif sys.argv[1] == "density-10":
+  bin_weights = (0, 10)
+  for i in range(size):
+    a = 0
+    b = 0
+    for j in range(32):
+      a = (a << 1) + random.choices([0,1], weights=bin_weights)[0]
+      b = (b << 1) + random.choices([0,1], weights=bin_weights)[0]
+
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
 
 
 
