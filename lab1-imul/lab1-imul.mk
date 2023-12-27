@@ -9,8 +9,11 @@ lab1_imul_srcs = \
   lab1-imul-IntMulFL.v \
   lab1-imul-IntMulBase.v \
   lab1-imul-IntMulAlt.v \
+  lab1-imul-IntMulAlt-Data.v \
+  lab1-imul-IntMulAlt-Ctrl.v \
   lab1-imul-test-harness.v \
   lab1-imul-sim-harness.v \
+  lab1-imul-PriorityEncoder.v \
 
 lab1_imul_test_srcs = \
   lab1-imul-msgs.t.v \
@@ -60,6 +63,25 @@ lab1_imul_eval_impls  = base alt
 
 lab1_imul_eval_inputs = \
   small   \
+  spn     \
+  snp     \
+  snn     \
+  lpp     \
+  lpn     \
+  lnp     \
+  lnn     \
+  low-mask-a \
+  low-mask-b \
+  low-mask   \
+  mid-mask-a \
+  mid-mask-b \
+  mid-mask   \
+  sparse-a  \
+  sparse-b  \
+  sparse  \
+  dense-a \
+  dense-b \
+  dense   \
 
 # Template used to create rules for each impl/input pair
 

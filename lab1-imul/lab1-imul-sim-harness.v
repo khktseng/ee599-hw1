@@ -213,6 +213,82 @@ module top;
       `include "lab1-imul-gen-input_small.py.v"
     end
 
+    else if ( input_dataset == "spn" ) begin
+      `include "lab1-imul-gen-input_spn.py.v"
+    end
+
+    else if ( input_dataset == "snp" ) begin
+      `include "lab1-imul-gen-input_snp.py.v"
+    end
+
+    else if ( input_dataset == "snn" ) begin
+      `include "lab1-imul-gen-input_snn.py.v"
+    end
+
+    else if ( input_dataset == "lpp" ) begin
+      `include "lab1-imul-gen-input_lpp.py.v"
+    end
+
+    else if ( input_dataset == "lpn" ) begin
+      `include "lab1-imul-gen-input_lpn.py.v"
+    end
+
+    else if ( input_dataset == "lnp" ) begin
+      `include "lab1-imul-gen-input_lnp.py.v"
+    end
+
+    else if ( input_dataset == "lnn" ) begin
+      `include "lab1-imul-gen-input_lnn.py.v"
+    end
+
+    else if ( input_dataset == "low-mask-a" ) begin
+      `include "lab1-imul-gen-input_low-mask-a.py.v"
+    end
+
+    else if ( input_dataset == "low-mask-b" ) begin
+      `include "lab1-imul-gen-input_low-mask-b.py.v"
+    end
+
+    else if ( input_dataset == "low-mask" ) begin
+      `include "lab1-imul-gen-input_low-mask.py.v"
+    end
+
+    else if ( input_dataset == "mid-mask-a" ) begin
+      `include "lab1-imul-gen-input_mid-mask-a.py.v"
+    end
+
+    else if ( input_dataset == "mid-mask-b" ) begin
+      `include "lab1-imul-gen-input_mid-mask-b.py.v"
+    end
+
+    else if ( input_dataset == "mid-mask" ) begin
+      `include "lab1-imul-gen-input_mid-mask.py.v"
+    end
+
+    else if ( input_dataset == "sparse-a" ) begin
+      `include "lab1-imul-gen-input_sparse-a.py.v"
+    end
+
+    else if ( input_dataset == "sparse-b" ) begin
+      `include "lab1-imul-gen-input_sparse-b.py.v"
+    end
+
+    else if ( input_dataset == "sparse" ) begin
+      `include "lab1-imul-gen-input_sparse.py.v"
+    end
+
+    else if ( input_dataset == "dense-a" ) begin
+      `include "lab1-imul-gen-input_dense-a.py.v"
+    end
+
+    else if ( input_dataset == "dense-b" ) begin
+      `include "lab1-imul-gen-input_dense-b.py.v"
+    end
+
+    else if ( input_dataset == "dense" ) begin
+      `include "lab1-imul-gen-input_dense.py.v"
+    end
+
     // Add additional datasets for evaluation here
 
     else begin
