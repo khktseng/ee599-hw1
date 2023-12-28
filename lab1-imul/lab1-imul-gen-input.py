@@ -33,7 +33,7 @@ except:
   size = 10
 '''
 
-size = 100
+size = 500
 print ("num_inputs =", size, ";")
 
 in0 = []
@@ -315,7 +315,17 @@ elif sys.argv[1] == "dense":
 
   print_dataset(in0, in1, out)
 
+elif sys.argv[1] == "uniform":
+  bin_weights = (1, 10)
+  for i in range(size):
+    a = random.randint(-(2**31),2**31-1)
+    b = random.randint(-(2**31),2**31-1)
 
+    in0.append(a & 0xffffffff)
+    in1.append(b & 0xffffffff)
+    out.append((a * b) & 0xffffffff)
+
+  print_dataset(in0, in1, out)
 
 
 

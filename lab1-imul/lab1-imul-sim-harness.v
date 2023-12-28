@@ -126,7 +126,7 @@ module top;
     // Maximum cycles
 
     if ( !$value$plusargs( "max-cycles=%d", max_cycles ) ) begin
-      max_cycles = 5000;
+      max_cycles = 50000;
     end
 
     // VCD dumping

@@ -162,7 +162,7 @@ module top;
     #1;   th_reset = 1'b1;
     #20;  th_reset = 1'b0;
 
-    while ( !th_done && (th.vc_trace.cycles < 5000) ) begin
+    while ( !th_done && (th.vc_trace.cycles < 50000) ) begin
       th.display_trace();
       #10;
     end

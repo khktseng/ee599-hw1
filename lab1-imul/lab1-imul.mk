@@ -49,6 +49,7 @@ lab1_imul_pyv_srcs = \
   lab1-imul-gen-input_dense-a.py.v \
   lab1-imul-gen-input_dense-b.py.v \
   lab1-imul-gen-input_dense.py.v \
+  lab1-imul-gen-input_uniform.py.v \
 
 #-------------------------------------------------------------------------
 # Evaluation
@@ -82,6 +83,7 @@ lab1_imul_eval_inputs = \
   dense-a \
   dense-b \
   dense   \
+  uniform \
 
 # Template used to create rules for each impl/input pair
 
