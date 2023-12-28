@@ -33,7 +33,7 @@ except:
   size = 10
 '''
 
-size = 500
+size = 1000
 print ("num_inputs =", size, ";")
 
 in0 = []
