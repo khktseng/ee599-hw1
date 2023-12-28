@@ -61,6 +61,8 @@ lab1_imul_pyv_srcs = \
   lab1-imul-gen-input_density-8.py.v \
   lab1-imul-gen-input_density-9.py.v \
   lab1-imul-gen-input_density-10.py.v \
+  lab1-imul-gen-input_uniform.py.v \
+
 
 #-------------------------------------------------------------------------
 # Evaluation
@@ -94,6 +96,7 @@ lab1_imul_eval_inputs = \
   dense-a \
   dense-b \
   dense   \
+<<<<<<< HEAD
   density-0\
   density-1\
   density-2\
@@ -105,6 +108,9 @@ lab1_imul_eval_inputs = \
   density-8\
   density-9\
   density-10\
+=======
+  uniform \
+>>>>>>> uniform-test
 
 # Template used to create rules for each impl/input pair
 

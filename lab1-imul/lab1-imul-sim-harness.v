@@ -204,7 +204,8 @@ module top;
   //----------------------------------------------------------------------
 
   integer num_inputs = 0;
-
+  integer cycles;
+  integer fu;
   initial begin
 
     #1;
@@ -323,8 +324,9 @@ module top;
     else if ( input_dataset == "density-10" ) begin
       `include "lab1-imul-gen-input_density-10.py.v"
     end
-
-
+    else if ( input_dataset == "uniform" ) begin
+      `include "lab1-imul-gen-input_uniform.py.v"
+    end
     // Add additional datasets for evaluation here
 
     else begin
@@ -341,10 +343,20 @@ module top;
 
     // Run the simulation
 
+    cycles = 0;
+    fu = $fopen("uniform_cycles.txt", "w");
     while ( !th_done && (th.vc_trace.cycles < max_cycles) ) begin
       th.display_trace();
+      if (th.src_val && th.src_rdy) begin
+        cycles = th.vc_trace.cycles;
+      end
+
+      if (th.sink_val) begin
+        $fwrite(fu, "%0d\n", (th.vc_trace.cycles - cycles));
+      end
       #10;
     end
+    $fclose(fu);
 
     // Check that the simulation actually finished
 
