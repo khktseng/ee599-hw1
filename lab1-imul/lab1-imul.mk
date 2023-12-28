@@ -96,7 +96,6 @@ lab1_imul_eval_inputs = \
   dense-a \
   dense-b \
   dense   \
-<<<<<<< HEAD
   density-0\
   density-1\
   density-2\
@@ -108,9 +107,7 @@ lab1_imul_eval_inputs = \
   density-8\
   density-9\
   density-10\
-=======
   uniform \
->>>>>>> uniform-test
 
 # Template used to create rules for each impl/input pair
 
